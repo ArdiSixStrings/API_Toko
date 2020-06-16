@@ -1,10 +1,6 @@
 from rest_framework import serializers
 from profiles_api import models
 
-class HelloSerializer(serializers.Serializer):
-    """Serializer sama kan data nya dengan models"""
-    name=serializers.CharField(max_length=30)
-
 class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -28,3 +24,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
         return users
 
+class UserInfoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model=models.TokoUserInfo
+        fields=('id','nama_pemilik','alamat','nama_toko','kode_pos','latitude','longtitude','photo')

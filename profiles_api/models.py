@@ -48,3 +48,15 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+class TokoUserInfo(models.Model):
+    nama_pemilik=models.CharField(max_length=255)
+    alamat=models.TextField()
+    nama_toko=models.CharField(max_length=255)
+    kode_pos=models.IntegerField()
+    latitude=models.DecimalField(max_digits=5,decimal_places=2)
+    longtitude=models.DecimalField(max_digits=5,decimal_places=2)
+    photo=models.ImageField(upload_to='media/')
+
+    def __str__(self):
+        return self.nama_pemilik
